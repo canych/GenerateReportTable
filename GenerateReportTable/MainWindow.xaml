@@ -17,7 +17,8 @@
                 Height="25"
                 Width="80"
                 Content="Создать"
-                Grid.Column="0"/>
+                Grid.Column="0"
+                Click="BtnCreate_Click"/>
         <DataGrid x:Name="gridReport"
                   Margin="10,10,10,10"
                   Grid.Column="1"

@@ -17,7 +17,8 @@
                 Height="25"
                 Width="80"
                 Content="Создать"
-                Grid.Column="0"/>
+                Grid.Column="0"
+                Click="BtnCreate_Click"/>
         <DataGrid x:Name="gridReport"
                   Margin="10,10,10,10"
                   Grid.Column="1"
@@ -26,19 +27,26 @@
                   IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="colNumber"
-                                    Header="№ п/п"/>
+                                    Header="№ п/п"
+                                    Binding="{Binding Number}"/>
                 <DataGridTextColumn x:Name="colCriteria"
-                                    Header="Критерий оценки"/>
+                                    Header="Критерий оценки"
+                                    Binding="{Binding Name}"/>
                 <DataGridTextColumn x:Name="colMark2"
-                                    Header="2"/>
+                                    Header="2"
+                                    Binding="{Binding Mark2}"/>
                 <DataGridTextColumn x:Name="colMark3"
-                                    Header="3"/>
+                                    Header="3"
+                                    Binding="{Binding Mark3}"/>
                 <DataGridTextColumn x:Name="colMark4"
-                                    Header="4"/>
+                                    Header="4"
+                                    Binding="{Binding Mark4}"/>
                 <DataGridTextColumn x:Name="colMark5"
-                                    Header="5"/>
+                                    Header="5"
+                                    Binding="{Binding Mark5}"/>
                 <DataGridTextColumn x:Name="colComment"
-                                    Header="Краткое обоснование оценки"/>
+                                    Header="Краткое обоснование оценки"
+                                    Binding="{Binding Comment}"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

@@ -45,5 +45,14 @@ namespace GenerateReportTable
             // Привязка данных
             gridReport.ItemsSource = table;
         }
+
+        private void btnWord_Click(object sender, RoutedEventArgs e)
+        {
+            // Создать документ
+            WordDoc w = new WordDoc();
+
+            // Закрыть документ
+            w.Close();
+        }
     }
 }

@@ -12,13 +12,20 @@
             <ColumnDefinition Width="412*"/>
         </Grid.ColumnDefinitions>
         <Button x:Name="btnCreate"
-                Margin="10,10,10,10"
+                Margin="10,10,10,45"
                 VerticalAlignment="Bottom"
                 Height="25"
                 Width="80"
                 Content="Создать"
                 Grid.Column="0"
                 Click="BtnCreate_Click"/>
+        <Button x:Name="btnWord"
+                Margin="10,10,10,10"
+                VerticalAlignment="Bottom"
+                Height="25"
+                Width="80"
+                Content="В Word"
+                Grid.Column="0" Click="btnWord_Click"/>
         <DataGrid x:Name="gridReport"
                   Margin="10,10,10,10"
                   Grid.Column="1"

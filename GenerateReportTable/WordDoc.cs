@@ -14,6 +14,10 @@ namespace GenerateReportTable
         /// Приложение Word
         /// </summary>
         private Word.Application _wordApp;
+        /// <summary>
+        /// Документ
+        /// </summary>
+        private Word.Document _wordDocument;
 
         /// <summary>
         /// Конструктор
@@ -22,6 +26,18 @@ namespace GenerateReportTable
         {
             // Создание нового приложения
             _wordApp = new Word.Application();
+
+            // Создание нового документа
+            _wordDocument = _wordApp.Documents.Add();
+        }
+
+        /// <summary>
+        /// Сохранение документа
+        /// </summary>
+        /// <param name="path">Путь для сохранения</param>
+        public void Save(string path)
+        {
+            _wordDocument.SaveAs($"{path}");
         }
 
         /// <summary>
@@ -38,7 +54,7 @@ namespace GenerateReportTable
             Object routeDocument = Type.Missing;
 
             // Выход
-            _wordApp.Quit(ref saveChanges, ref originalFormat, ref routeDocument);
+            _wordApp.Quit(saveChanges, originalFormat, routeDocument);
             _wordApp = null;
         }
     }

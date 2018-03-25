@@ -51,6 +51,23 @@ namespace GenerateReportTable
             // Создать документ
             WordDoc w = new WordDoc();
 
+            // Путь для сохранения
+            Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog()
+            {
+                Filter = "Файлы Word (*.doc; *.docx)|*.doc;*.docx",
+                Title = "Выберите место для сохранения документа",
+                DefaultExt = "docx",
+                OverwritePrompt = false
+            };
+
+            bool? result = dlg.ShowDialog();
+
+            if (result ?? true)
+            {
+                // Сохранение
+                w.Save(dlg.FileName);
+            }
+
             // Закрыть документ
             w.Close();
         }

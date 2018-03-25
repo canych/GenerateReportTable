@@ -52,6 +52,9 @@ namespace GenerateReportTable
             {
                 table.Add(new Report(i, marks[i - 1]));
             }
+
+            // Привязка данных
+            gridReport.ItemsSource = table;
         }
     }
 }

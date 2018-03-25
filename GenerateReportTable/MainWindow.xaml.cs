@@ -49,16 +49,17 @@ namespace GenerateReportTable
             gridReport.ItemsSource = table;
         }
 
-        private void btnWord_Click(object sender, RoutedEventArgs e)
+        private async void btnWord_Click(object sender, RoutedEventArgs e)
         {
             // Создать документ
             WordDoc w = new WordDoc();
+            await w.CreateWordAsync();
 
             // Создать название таблицы
-            w.CreateTableName();
+            await w.CreateTableNameAsync();
 
             // Создать таблицу
-            w.CreateTable(table);
+            await w.CreateTableAsync(table);
 
             // Путь для сохранения
             Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog()
@@ -74,10 +75,12 @@ namespace GenerateReportTable
             if (result ?? true)
             {
                 // Сохранение
-                w.Save(dlg.FileName);
+                await w.SaveAsync(dlg.FileName);
 
                 // Закрыть документ
-                w.Close();
+                await w.CloseAsync();
+
+                MessageBox.Show("Сохранение завершено");
             }
             else
             {

@@ -51,6 +51,9 @@ namespace GenerateReportTable
             // Создать документ
             WordDoc w = new WordDoc();
 
+            // Создать название таблицы
+            w.CreateTableName();
+
             // Путь для сохранения
             Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog()
             {

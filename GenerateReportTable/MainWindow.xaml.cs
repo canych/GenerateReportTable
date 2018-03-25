@@ -9,6 +9,9 @@ namespace GenerateReportTable
     /// </summary>
     public partial class MainWindow : Window
     {
+        // Список данных
+        private List<Report> table;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -35,7 +38,7 @@ namespace GenerateReportTable
             }
 
             // Создание и заполнение списка для создания таблички
-            List<Report> table = new List<Report>();
+            table = new List<Report>();
 
             for (int i = 1; i < 16; i++)
             {
@@ -54,6 +57,9 @@ namespace GenerateReportTable
             // Создать название таблицы
             w.CreateTableName();
 
+            // Создать таблицу
+            w.CreateTable(table);
+
             // Путь для сохранения
             Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog()
             {
@@ -69,10 +75,14 @@ namespace GenerateReportTable
             {
                 // Сохранение
                 w.Save(dlg.FileName);
-            }
 
-            // Закрыть документ
-            w.Close();
+                // Закрыть документ
+                w.Close();
+            }
+            else
+            {
+                MessageBox.Show("Сохранение не удалось", "Ошибка");
+            }
         }
     }
 }

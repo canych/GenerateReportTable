@@ -163,7 +163,9 @@ namespace GenerateReportTable
                 _mark4 = marker;
                 _mark5 = ' ';
             }
-            
+
+            // Комментарий
+            _comment = "";
         }
     }
 }

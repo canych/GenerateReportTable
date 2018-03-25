@@ -47,6 +47,14 @@ namespace GenerateReportTable
 
             // Привязка данных
             gridReport.ItemsSource = table;
+
+            btnWord.IsEnabled = true;
+
+            // Размеры
+            Height = 370;
+            Width = 946;
+
+            gridReport.Visibility = Visibility.Visible;
         }
 
         private async void btnWord_Click(object sender, RoutedEventArgs e)

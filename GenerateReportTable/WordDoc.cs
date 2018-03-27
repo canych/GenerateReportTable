@@ -83,7 +83,7 @@ namespace GenerateReportTable
                 _wordParagraph = _wordParagraphs[2];
 
                 // Новая таблица
-                Word.Table _wordTable = _wordDocument.Tables.Add(_wordParagraph.Range, list.Count, 7,
+                Word.Table _wordTable = _wordDocument.Tables.Add(_wordParagraph.Range, list.Count + 2, 7,
                     Word.WdDefaultTableBehavior.wdWord9TableBehavior, Word.WdAutoFitBehavior.wdAutoFitWindow);
 
                 #region Ширина столбцов
@@ -136,6 +136,11 @@ namespace GenerateReportTable
                 _wordCellRange.Text = "Шкала оценок";
                 _wordCellRange = _wordTable.Cell(1, 4).Range;
                 _wordCellRange.Text = "Краткое обоснование\nоценки";
+
+                #if DEBUG
+                // Видимость Word'а
+                _wordApp.Visible = true;
+                #endif
 
                 // Виды оценок
                 for (int i = 3; i < 7; i++)
